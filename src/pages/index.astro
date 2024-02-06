@@ -1,0 +1,46 @@
+---
+import '../index.css';
+import "@fontsource/mochiy-pop-one"
+import {Stack, Center, HStack} from "styled-system/jsx";
+import { CountdownTimer } from '~/components/CountdownTimer';
+import {VideoPlayer} from "~/components/VideoPlayer";
+import { Text } from "~/components/ui/text";
+import { token } from "styled-system/tokens";
+import { getIjigenDay } from "../utils/getIjigenDay"
+import logo from "../assets/logo.png";
+
+const title = `異次元フェス Day ${getIjigenDay()}`
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="theme-color" content={token("colors.ll")}>
+		<title>{title}</title>
+		<meta property="og:title" content={title} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="" />
+		<meta property="og:image" content={logo.src} />
+		<meta property="og:description" content="東京ドームにいこうぜ"/>
+		<meta property="twitter:site" content="@HamP_punipuni" />
+		<meta property="twitter:creator" content={logo.src} />	
+	</head>
+	<body>
+		<VideoPlayer client:only/>
+		<Stack h="screen">
+			<CountdownTimer/>	
+			<HStack py="2" justifyContent="center" layerStyle="textGradient">
+				<Text  fontWeight="normal" >
+					作成：ハム
+				</Text>
+				<Text>|</Text>
+				<Text fontWeight="normal" layerStyle="textGradient">
+					ソース
+				</Text>
+			</HStack>
+		</Stack>
+	</body>
+</html>
