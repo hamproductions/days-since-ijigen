@@ -29,10 +29,10 @@ export default defineConfig({
       tokens: {
         colors: {
           ll: {
-            value: "rgba(228,0,127,1.00)",
+            value: "#e4007f",
           },
           imas: {
-            value: "rgba(243,78,108,1.00)",
+            value: "#f34e6c",
           },
         },
       },
