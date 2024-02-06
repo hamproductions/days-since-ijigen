@@ -10,6 +10,7 @@ import { getIjigenDay } from "../utils/getIjigenDay"
 import logo from "../assets/logo.png";
 
 const title = `異次元フェス Day ${getIjigenDay()}`
+const description = `東京ドームにいこうぜ ${new Date().toDateString()} ${new Date().toTimeString()}`
 ---
 
 <html lang="en">
@@ -22,9 +23,9 @@ const title = `異次元フェス Day ${getIjigenDay()}`
 		<title>{title}</title>
 		<meta property="og:title" content={title} />
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="" />
+		<meta property="og:url" content="https://ijigen-day-n.ham-san.net/" />
 		<meta property="og:image" content={logo.src} />
-		<meta property="og:description" content="東京ドームにいこうぜ"/>
+		<meta property="og:description" content={description} />
 		<meta property="twitter:site" content="@HamP_punipuni" />
 		<meta property="twitter:creator" content={logo.src} />	
 	</head>
