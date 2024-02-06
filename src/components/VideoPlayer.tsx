@@ -15,7 +15,7 @@ export const VideoPlayer = () => {
       h="100vh"
     >
       <styled.iframe
-        src="https://www.youtube.com/embed/3p7__uAHhdQ?si=pQMe5uzvZa7N3Aan&autoplay=1&controls=0&mute=1&loop=1&start=97"
+        src="https://www.youtube.com/embed/3p7__uAHhdQ?si=pQMe5uzvZa7N3Aan&autoplay=1&controls=0&mute=1&loop=1&start=97&modestbranding=1&showinfo=0&disablekb=1&fs=0"
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         h="100vh"
