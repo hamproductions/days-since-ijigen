@@ -10,7 +10,8 @@ import { getIjigenDay } from "../utils/getIjigenDay"
 import logo from "../assets/logo.png";
 
 const title = `異次元フェス Day ${getIjigenDay()}`
-const description = `東京ドームにいこうぜ ${new Date().toDateString()} ${new Date().toTimeString()}`
+const day = new Date()
+const description = `${day.getFullYear()}年${day.getMonth()+1}月${day.getDate()}日(${ [ "日", "月", "火", "水", "木", "金", "土" ][day.getDay()]}) 開場15:00／開演17:00（予定）東京ドーム`
 ---
 
 <html lang="en">
@@ -26,8 +27,8 @@ const description = `東京ドームにいこうぜ ${new Date().toDateString()}
 		<meta property="og:url" content="https://ijigen-day-n.ham-san.net/" />
 		<meta property="og:image" content={logo.src} />
 		<meta property="og:description" content={description} />
-		<meta property="twitter:site" content="@HamP_punipuni" />
-		<meta property="twitter:creator" content={logo.src} />	
+		<meta property="twitter:site" content="@ijigenfes" />
+		<meta property="twitter:creator" content="@HamP_punipuni" />	
 	</head>
 	<body>
 		<VideoPlayer client:only/>
