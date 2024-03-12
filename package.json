@@ -17,10 +17,9 @@
     "@astrojs/react": "^3.1.0",
     "@fontsource/dela-gothic-one": "^5.0.18",
     "@fontsource/mochiy-pop-one": "^5.0.17",
-    "@fontsource/rampart-one": "^5.0.18",
     "@pandacss/dev": "^0.34.3",
     "@park-ui/panda-preset": "^0.36.1",
-    "astro": "^4.5.1",
+    "astro": "^4.3.2",
     "typescript": "^5.4.2",
     "lucide-react": "^0.356.0"
   },
