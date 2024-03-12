@@ -21,9 +21,9 @@
     "@pandacss/dev": "^0.34.3",
     "@park-ui/panda-preset": "^0.36.1",
     "astro": "^4.5.1",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.2",
+    "lucide-react": "^0.356.0"
   },
   "devDependencies": {
-    "lucide-react": "^0.356.0"
   }
 }
