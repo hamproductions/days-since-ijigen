@@ -1,0 +1,12 @@
+[[redirects]]
+    from = "https://ijigen-day-n.ham-san.net"
+    to = "https://day-n.ham-san.net/ijigen"
+    status = 200
+    force = true
+
+
+[[redirects]]
+    from = "https://kousien-day-n.ham-san.net"
+    to = "https://day-n.ham-san.net/unitlive2024"
+    status = 200
+    force = true
