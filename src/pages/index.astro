@@ -1,17 +1,20 @@
 ---
 import '../index.css';
-import "@fontsource/mochiy-pop-one"
 import {Stack, Center, HStack} from "styled-system/jsx";
 import { CountdownTimer } from '~/components/CountdownTimer';
-import {VideoPlayer} from "~/components/VideoPlayer";
 import { Text } from "~/components/ui/text";
 import { token } from "styled-system/tokens";
-import { getIjigenDay } from "../utils/getIjigenDay"
+import { getEventDay } from "../utils/getEventDay"
 import logo from "../assets/logo.png";
+import { EVENTS_MAP } from '~/utils/events';
+import { Footer } from '~/components/Footer';
 
-const title = `異次元フェス Day ${getIjigenDay()}`
+const event = EVENTS_MAP.ijigen
+const title = `${event.name} Day ${getEventDay(event.timestamp)}`
 const day = new Date()
-const description = `${day.getFullYear()}年${day.getMonth()+1}月${day.getDate()}日(${ [ "日", "月", "火", "水", "木", "金", "土" ][day.getDay()]}) 開場15:00／開演17:00（予定）東京ドーム\n#異次元フェス\n#アイラブ歌合戦\n#idolmaster\n#lovelive\n#アイラブ歌合戦_Day${getIjigenDay()}`
+const description = `${day.getFullYear()}年${day.getMonth()+1}月${day.getDate()}日(${ [ "日", "月", "火", "水", "木", "金", "土" ][day.getDay()]}) ${event.time} ${event.location}\n#${event.hashtags.map(e => `#${e}`).join("\n")}#${event.dayHashtag}${getEventDay(event.timestamp)}`
+const Background = event.Background;
+event.getFont()
 ---
 
 <html lang="en">
@@ -25,24 +28,17 @@ const description = `${day.getFullYear()}年${day.getMonth()+1}月${day.getDate(
 		<meta property="og:title" content={title} />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://ijigen-day-n.ham-san.net/" />
-		<meta property="og:image" content={logo.src} />
+		<meta property="og:image" content={event.logo.src} />
 		<meta property="og:description" content={description} />
-		<meta property="twitter:site" content="@ijigenfes" />
+		<meta property="twitter:site" content={event.twitter} />
 		<meta property="twitter:creator" content="@HamP_punipuni" />	
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>
-		<VideoPlayer client:only/>
-		<Stack h="screen">
-			<CountdownTimer/>	
-			<HStack py="2" justifyContent="center" layerStyle="textGradient">
-				<Text  fontWeight="normal" >
-					作成：ハムP
-				</Text>
-				<Text>|</Text>
-				<Text fontWeight="normal" layerStyle="textGradient">
-					ソース
-				</Text>
-			</HStack>
+		<Stack h="screen" overflow="hidden" position="relative">
+			<Background client:only="react"/>
+			<CountdownTimer event={event}/>	
+			<Footer event={event}/>
 		</Stack>
 	</body>
 </html>

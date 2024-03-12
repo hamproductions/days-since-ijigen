@@ -1,12 +1,13 @@
 import { Stack, styled } from "styled-system/jsx";
 import { Text } from "./ui/text";
 import { Heading } from "./ui/heading";
-import { getIjigenDay } from "~/utils/getIjigenDay";
+import { getEventDay } from "~/utils/getEventDay";
+import type { Event } from "~/utils/events";
 
-export const CountdownTimer = () => {
+export const CountdownTimer = ({ event }: { event: Event }) => {
   return (
-    <Stack flex="1" alignItems="center" justifyContent="center" gap="3">
-      <Stack p="5" alignItems="center" bgColor="white.a4">
+    <Stack flex="1" alignItems="center" justifyContent="center" gap="3" px="4">
+      <Stack p="5" alignItems="center" bgColor="white.a8">
         <Stack
           fontSize="3xl"
           fontWeight="400"
@@ -15,38 +16,43 @@ export const CountdownTimer = () => {
           textAlign="center"
           alignItems="center"
         >
+          {event.headlines.map((headline, idx) => {
+            return (
+              <Text
+                style={{
+                  ["--delay" as "animationDuration"]: `${idx * 2}s`,
+                }}
+                animation="fade-in"
+                animationDuration="3s"
+                animationDelay="var(--delay)"
+                layerStyle={event.slug}
+                animationFillMode="both"
+              >
+                {headline}
+              </Text>
+            );
+          })}
           <Text
+            style={{
+              ["--delay" as "animationDuration"]: `${
+                event.headlines.length * 2
+              }s`,
+            }}
             animation="fade-in"
-            animationDuration="3s"
-            layerStyle="textGradient"
-            animationFillMode="both"
-          >
-            異次元フェス
-          </Text>
-          <Text
-            animation="fade-in"
-            layerStyle="textGradient"
-            animationDelay="1s"
-            animationDuration="2s"
-            animationFillMode="both"
-          >
-            アイドルマスター★♥︎ラブライブ！歌合戦
-          </Text>
-          <Text
-            animation="fade-in"
-            layerStyle="textGradient"
-            animationDelay="2s"
+            layerStyle={event.slug}
+            animationDelay="var(--delay)"
             animationDuration="2s"
             animationFillMode="both"
             fontSize="5xl"
           >
-            Day {getIjigenDay()}
+            Day {getEventDay(event.timestamp)}
           </Text>
         </Stack>
         <styled.a
+          layerStyle={event.slug}
           target="_blank"
           fontSize="xl"
-          href="https://ijigen-fes.jp/utagassen/"
+          href={event.detailsUrl}
         >
           詳細
         </styled.a>

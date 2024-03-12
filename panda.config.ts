@@ -23,6 +23,8 @@ export default defineConfig({
   // Files to exclude
   exclude: [],
 
+  staticCss: {},
+
   // Useful for theme customization
   theme: {
     extend: {
@@ -34,15 +36,25 @@ export default defineConfig({
           imas: {
             value: "#f34e6c",
           },
+          kousien: {
+            value: "rgb(32,45,130)",
+          },
         },
       },
       layerStyles: {
-        textGradient: {
+        ijigen: {
           value: {
+            fontFamily: `"Mochiy Pop One"` as unknown as undefined,
             backgroundImage:
               "linear-gradient(to right, {colors.imas} 0%, {colors.ll} 100%)",
             backgroundClip: "text",
             color: "transparent",
+          },
+        },
+        unitlive2024: {
+          value: {
+            color: "{colors.kousien}",
+            fontFamily: `"Dela Gothic One"` as unknown as undefined,
           },
         },
       },
@@ -51,9 +63,7 @@ export default defineConfig({
 
   globalCss: {
     extend: {
-      "*": {
-        fontFamily: `"Mochiy Pop One"`,
-      },
+      "*": {},
     },
   },
 
