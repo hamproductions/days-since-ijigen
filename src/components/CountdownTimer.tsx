@@ -22,7 +22,7 @@ export const CountdownTimer = (props: { event: Event }) => {
               <Text
                 key={idx}
                 style={{
-                  ["--delay" as "animationDuration"]: `${idx * 2}s`,
+                  ["--delay" as "animationDuration"]: `1s`,
                 }}
                 animation="fade-in"
                 animationDuration="3s"
@@ -36,9 +36,7 @@ export const CountdownTimer = (props: { event: Event }) => {
           })}
           <Text
             style={{
-              ["--delay" as "animationDuration"]: `${
-                event.headlines.length * 2
-              }s`,
+              ["--delay" as "animationDuration"]: `${1}s`,
             }}
             animation="fade-in"
             layerStyle={event.slug}
