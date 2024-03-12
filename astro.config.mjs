@@ -8,6 +8,7 @@ export default defineConfig({
   integrations: [react()],
   output: "server",
   adapter: netlify({
-    edgeMiddleware: true
+    edgeMiddleware: true,
+
   })
 });

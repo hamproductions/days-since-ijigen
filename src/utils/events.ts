@@ -18,7 +18,6 @@ export type Event = {
   headlines: string[];
   detailsUrl: string;
   textStyles: string;
-  fontLib: string;
   Background: React.FunctionComponent;
 };
 
@@ -36,7 +35,7 @@ export const EVENTS_MAP = {
     headlines: ["異次元フェス", "アイドルマスター★♥︎ラブライブ！歌合戦"],
     detailsUrl: "https://ijigen-fes.jp/utagassen/",
     textStyles: css({ layerStyle: "ijigen" }),
-    fontLib: "@fontsource/mochiy-pop-one",
+
     Background: IjigenBg,
   },
   ["unitlive2024"]: {
@@ -53,7 +52,7 @@ export const EVENTS_MAP = {
     detailsUrl:
       "https://lovelive-anime.jp/special/live/live_detail.php?p=unitlive2024",
     textStyles: css({ layerStyle: "unitlive2024" }),
-    fontLib: "@fontsource/mochiy-pop-one",
+
     Background: KousienBg,
   },
 } satisfies Record<string, Event>;

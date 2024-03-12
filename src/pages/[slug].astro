@@ -1,4 +1,7 @@
 ---
+import "@fontsource/dela-gothic-one";
+import "@fontsource/mochiy-pop-one";
+
 import type { GetStaticPaths } from "astro";
 import { Stack } from "styled-system/jsx";
 import { token } from "styled-system/tokens";
@@ -7,7 +10,6 @@ import { Footer } from '~/components/Footer';
 import '../index.css';
 import { EVENTS, EVENTS_MAP } from "../utils/events";
 import { getEventDay } from "../utils/getEventDay";
-
 export const getStaticPaths = (() => {
 	return EVENTS.map(e => ({params: {slug: e.slug}}));
 }) satisfies GetStaticPaths;
@@ -19,7 +21,6 @@ const title = `${event.name} Day ${getEventDay(event.timestamp)}`
 const day = new Date()
 const description = `${day.getFullYear()}年${day.getMonth()+1}月${day.getDate()}日(${ [ "日", "月", "火", "水", "木", "金", "土" ][day.getDay()]}) ${event.time} ${event.location}\n#${event.hashtags.map(e => `#${e}`).join("\n")}#${event.dayHashtag}${getEventDay(event.timestamp)}`
 const Background = event.Background;
-import(event.fontLib)
 ---
 
 <html lang="en">
