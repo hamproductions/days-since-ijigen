@@ -1,45 +1,58 @@
 ---
 import { Stack } from "styled-system/jsx";
 import { token } from "styled-system/tokens";
-import { CountdownTimer } from '~/components/CountdownTimer';
-import { Footer } from '~/components/Footer';
-import { EVENTS_MAP } from '~/utils/events';
-import '../index.css';
+import { CountdownTimer } from "~/components/CountdownTimer";
+import { Footer } from "~/components/Footer";
+import { EVENTS_MAP } from "~/utils/events";
+import "../index.css";
 import { getEventDay } from "../utils/getEventDay";
 
 import "@fontsource/dela-gothic-one";
 import "@fontsource/mochiy-pop-one";
 
-const event = EVENTS_MAP.ijigen
-const title = `${event.name} Day ${getEventDay(event.timestamp)}`
-const day = new Date()
-const description = `${day.getFullYear()}年${day.getMonth()+1}月${day.getDate()}日(${ [ "日", "月", "火", "水", "木", "金", "土" ][day.getDay()]}) ${event.time} ${event.location}\n${event.hashtags.map(e => `#${e}`).join("\n")}\n#${event.dayHashtag}${getEventDay(event.timestamp)}`
+const event = EVENTS_MAP.ijigen;
+const title = `${event.name} Day ${getEventDay(event.timestamp)}`;
+const day = new Date();
+const description = `${day.getFullYear()}年${day.getMonth() + 1}月${day.getDate()}日(${["日", "月", "火", "水", "木", "金", "土"][day.getDay()]}) ${event.time} ${event.location}\n${event.hashtags.map((e) => `#${e}`).join("\n")}\n#${event.dayHashtag}${getEventDay(event.timestamp)}`;
 const Background = event.Background;
-
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="theme-color" content={token("colors.ll")}>
-		<title>{title}</title>
-		<meta property="og:title" content={title} />
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://ijigen-day-n.ham-san.net/" />
-		<meta property="og:image" content={event.logo.src} />
-		<meta property="og:description" content={description} />
-		<meta property="twitter:site" content={event.twitter} />
-		<meta property="twitter:creator" content="@HamP_punipuni" />	
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	</head>
-	<body>
-		<Stack h="screen" overflow="hidden" position="relative">
-			<Background />
-			<CountdownTimer event={event}/>	
-			<Footer event={event}/>
-		</Stack>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content={token("colors.ll")} />
+    <title>{title}</title>
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ijigen-day-n.ham-san.net/" />
+    <meta property="og:image" content={event.logo.src} />
+    <meta property="og:description" content={description} />
+    <meta property="twitter:site" content={event.twitter} />
+    <meta property="twitter:creator" content="@HamP_punipuni" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=G-7X5ESYRF3M"></script>
+
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "GA_MEASUREMENT_ID");
+    </script>
+  </head>
+  <body>
+    <Stack h="screen" overflow="hidden" position="relative">
+      <Background />
+      <CountdownTimer event={event} />
+      <Footer event={event} />
+    </Stack>
+  </body>
 </html>
