@@ -3,7 +3,7 @@ import { forwardRef } from 'react'
 import { css, cx } from 'styled-system/css'
 import { splitCssProps } from 'styled-system/jsx'
 import { avatar, type AvatarVariantProps } from 'styled-system/recipes'
-import type { Assign, JsxStyleProps } from 'styled-system/types'
+import type { Assign, JsxStyleProps, SystemStyleObject } from 'styled-system/types'
 
 export interface AvatarProps extends Assign<JsxStyleProps, AvatarRootProps>, AvatarVariantProps {
   name?: string
@@ -17,7 +17,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>((props, ref) => {
   const styles = avatar(variantProps)
 
   return (
-    <ArkAvatar.Root ref={ref} className={cx(styles.root, css(cssProps), className)} {...rootProps}>
+    <ArkAvatar.Root ref={ref} className={cx(styles.root, css(cssProps as SystemStyleObject), className)} {...rootProps}>
       <ArkAvatar.Fallback className={styles.fallback}>
         {getInitials(name) || <UserIcon />}
       </ArkAvatar.Fallback>

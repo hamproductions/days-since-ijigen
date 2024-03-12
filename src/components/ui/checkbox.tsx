@@ -3,7 +3,7 @@ import { forwardRef, type ReactNode } from 'react'
 import { css, cx } from 'styled-system/css'
 import { splitCssProps } from 'styled-system/jsx'
 import { checkbox, type CheckboxVariantProps } from 'styled-system/recipes'
-import type { Assign, JsxStyleProps } from 'styled-system/types'
+import type { Assign, JsxStyleProps, SystemStyleObject } from 'styled-system/types'
 
 export interface CheckboxProps
   extends Assign<JsxStyleProps, CheckboxRootProps>,
@@ -20,7 +20,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>((props, ref)
   return (
     <ArkCheckbox.Root
       ref={ref}
-      className={cx(styles.root, css(cssProps), className)}
+      className={cx(styles.root, css(cssProps as SystemStyleObject), className)}
       {...rootProps}
     >
       {(state) => (

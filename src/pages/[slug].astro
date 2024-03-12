@@ -1,12 +1,16 @@
 ---
-import '../index.css';
-import {Stack, Center, HStack} from "styled-system/jsx";
-import { CountdownTimer } from '~/components/CountdownTimer';
+import type { GetStaticPaths } from "astro";
+import { Stack } from "styled-system/jsx";
 import { token } from "styled-system/tokens";
-import { getEventDay } from "../utils/getEventDay"
-import { EVENTS_MAP } from "../utils/events"
+import { CountdownTimer } from '~/components/CountdownTimer';
 import { Footer } from '~/components/Footer';
+import '../index.css';
+import { EVENTS, EVENTS_MAP } from "../utils/events";
+import { getEventDay } from "../utils/getEventDay";
 
+export const getStaticPaths = (() => {
+	return EVENTS.map(e => ({params: {slug: e.slug}}));
+}) satisfies GetStaticPaths;
 
 const {slug} = Astro.params;
 const event = EVENTS_MAP[slug as keyof typeof EVENTS_MAP]

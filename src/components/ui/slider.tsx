@@ -3,7 +3,7 @@ import { forwardRef, type ReactNode } from 'react'
 import { css, cx } from 'styled-system/css'
 import { splitCssProps } from 'styled-system/jsx'
 import { slider, type SliderVariantProps } from 'styled-system/recipes'
-import type { Assign, JsxStyleProps } from 'styled-system/types'
+import type { Assign, JsxStyleProps, SystemStyleObject } from 'styled-system/types'
 
 export interface SliderProps extends Assign<JsxStyleProps, SliderRootProps>, SliderVariantProps {
   children?: ReactNode
@@ -20,7 +20,7 @@ export const Slider = forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
   const styles = slider(variantProps)
 
   return (
-    <ArkSlider.Root ref={ref} className={cx(styles.root, css(cssProps), className)} {...rootProps}>
+    <ArkSlider.Root ref={ref} className={cx(styles.root, css(cssProps as SystemStyleObject), className)} {...rootProps}>
       {(api) => (
         <>
           {children && <ArkSlider.Label className={styles.label}>{children}</ArkSlider.Label>}

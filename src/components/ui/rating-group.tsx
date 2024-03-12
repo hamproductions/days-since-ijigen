@@ -6,7 +6,7 @@ import { forwardRef, type ReactNode } from 'react'
 import { css, cx } from 'styled-system/css'
 import { splitCssProps } from 'styled-system/jsx'
 import { ratingGroup, type RatingGroupVariantProps } from 'styled-system/recipes'
-import type { Assign, JsxStyleProps } from 'styled-system/types'
+import type { Assign, JsxStyleProps, SystemStyleObject } from 'styled-system/types'
 
 export interface RatingGroupProps
   extends Assign<JsxStyleProps, RatingGroupRootProps>,
@@ -23,7 +23,7 @@ export const RatingGroup = forwardRef<HTMLDivElement, RatingGroupProps>((props, 
   return (
     <ArkRatingGroup.Root
       ref={ref}
-      className={cx(styles.root, css(cssProps), className)}
+      className={cx(styles.root, css(cssProps as SystemStyleObject), className)}
       {...rootProps}
     >
       {children && <ArkRatingGroup.Label className={styles.label}>{children}</ArkRatingGroup.Label>}

@@ -6,7 +6,7 @@ import { forwardRef, type ReactNode } from 'react'
 import { css, cx } from 'styled-system/css'
 import { splitCssProps } from 'styled-system/jsx'
 import { numberInput, type NumberInputVariantProps } from 'styled-system/recipes'
-import type { Assign, JsxStyleProps } from 'styled-system/types'
+import type { Assign, JsxStyleProps, SystemStyleObject } from 'styled-system/types'
 
 export interface NumberInputProps
   extends Assign<JsxStyleProps, NumberInputRootProps>,
@@ -23,7 +23,7 @@ export const NumberInput = forwardRef<HTMLDivElement, NumberInputProps>((props, 
   return (
     <ArkNumberInput.Root
       ref={ref}
-      className={cx(styles.root, css(cssProps), className)}
+      className={cx(styles.root, css(cssProps as SystemStyleObject), className)}
       {...rootProps}
     >
       {children && <ArkNumberInput.Label className={styles.label}>{children}</ArkNumberInput.Label>}

@@ -1,7 +1,7 @@
-import { Stack, Center, HStack } from "styled-system/jsx";
+import { HStack } from "styled-system/jsx";
 import { Text } from "~/components/ui/text";
-import { Link } from "./ui/link";
 import type { Event } from "~/utils/events";
+import { Link } from "./ui/link";
 
 export const Footer = ({ event }: { event: Event }) => {
   return (

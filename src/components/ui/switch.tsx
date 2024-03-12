@@ -3,7 +3,7 @@ import { forwardRef, type ReactNode } from 'react'
 import { css, cx } from 'styled-system/css'
 import { splitCssProps } from 'styled-system/jsx'
 import { switchRecipe, type SwitchRecipeVariantProps } from 'styled-system/recipes'
-import type { Assign, JsxStyleProps } from 'styled-system/types'
+import type { Assign, JsxStyleProps, SystemStyleObject } from 'styled-system/types'
 
 export interface SwitchProps
   extends Assign<JsxStyleProps, SwitchRootProps>,
@@ -18,7 +18,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>((props, ref) => 
   const styles = switchRecipe(variantProps)
 
   return (
-    <ArkSwitch.Root ref={ref} className={cx(styles.root, css(cssProps), className)} {...rootProps}>
+    <ArkSwitch.Root ref={ref} className={cx(styles.root, css(cssProps as SystemStyleObject), className)} {...rootProps}>
       <ArkSwitch.Control className={styles.control}>
         <ArkSwitch.Thumb className={styles.thumb} />
       </ArkSwitch.Control>

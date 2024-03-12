@@ -1,4 +1,4 @@
-import { Stack, styled, Box } from "styled-system/jsx";
+import { Box, styled } from "styled-system/jsx";
 import kosienAd from "../../assets/media/kosien.webm";
 
 export const KousienBg = () => {

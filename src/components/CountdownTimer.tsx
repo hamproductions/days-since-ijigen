@@ -1,8 +1,7 @@
 import { Stack, styled } from "styled-system/jsx";
-import { Text } from "./ui/text";
-import { Heading } from "./ui/heading";
-import { getEventDay } from "~/utils/getEventDay";
 import type { Event } from "~/utils/events";
+import { getEventDay } from "~/utils/getEventDay";
+import { Text } from "./ui/text";
 
 export const CountdownTimer = ({ event }: { event: Event }) => {
   return (

@@ -1,4 +1,4 @@
-import { Stack, styled, Box } from "styled-system/jsx";
+import { Box, styled } from "styled-system/jsx";
 
 export const IjigenBg = () => {
   return (

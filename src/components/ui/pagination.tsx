@@ -19,9 +19,9 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>((props, ref) 
 
   return (
     <ArkPagination.Root
-      ref={ref}
       // @ts-expect-error TODO cssProps is to complex to be typed
       className={cx(styles.root, css(cssProps), className)}
+      ref={ref}
       {...rootProps}
     >
       {({ pages }) => (
@@ -33,7 +33,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>((props, ref) 
           </ArkPagination.PrevTrigger>
           {pages.map((page, index) =>
             page.type === 'page' ? (
-              <ArkPagination.Item className={styles.item} key={page.value} {...page} asChild>
+              <ArkPagination.Item className={styles.item} key={index} {...page} asChild>
                 <Button variant="outline">{page.value}</Button>
               </ArkPagination.Item>
             ) : (

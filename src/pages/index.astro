@@ -1,13 +1,11 @@
 ---
-import '../index.css';
-import {Stack, Center, HStack} from "styled-system/jsx";
-import { CountdownTimer } from '~/components/CountdownTimer';
-import { Text } from "~/components/ui/text";
+import { Stack } from "styled-system/jsx";
 import { token } from "styled-system/tokens";
-import { getEventDay } from "../utils/getEventDay"
-import logo from "../assets/logo.png";
-import { EVENTS_MAP } from '~/utils/events';
+import { CountdownTimer } from '~/components/CountdownTimer';
 import { Footer } from '~/components/Footer';
+import { EVENTS_MAP } from '~/utils/events';
+import '../index.css';
+import { getEventDay } from "../utils/getEventDay";
 
 const event = EVENTS_MAP.ijigen
 const title = `${event.name} Day ${getEventDay(event.timestamp)}`
@@ -36,7 +34,7 @@ event.getFont()
 	</head>
 	<body>
 		<Stack h="screen" overflow="hidden" position="relative">
-			<Background client:only="react"/>
+			<Background/>
 			<CountdownTimer event={event}/>	
 			<Footer event={event}/>
 		</Stack>

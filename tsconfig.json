@@ -5,8 +5,9 @@
     "jsxImportSource": "react",
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "styled-system/*": ["./styled-system/*"]
     }
   },
-  "include": ["src", "./node_modules/styled-system/"]
+  "include": ["src"]
 }

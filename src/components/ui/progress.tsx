@@ -3,7 +3,7 @@ import { forwardRef, type ReactNode } from 'react'
 import { css, cx } from 'styled-system/css'
 import { splitCssProps } from 'styled-system/jsx'
 import { progress, type ProgressVariantProps } from 'styled-system/recipes'
-import type { Assign, JsxStyleProps } from 'styled-system/types'
+import type { Assign, JsxStyleProps, SystemStyleObject } from 'styled-system/types'
 
 export interface ProgressProps
   extends Assign<JsxStyleProps, ProgressRootProps>,
@@ -25,7 +25,7 @@ export const Progress = forwardRef<HTMLDivElement, ProgressProps>((props, ref) =
   return (
     <ArkProgress.Root
       ref={ref}
-      className={cx(styles.root, css(cssProps), className)}
+      className={cx(styles.root, css(cssProps as SystemStyleObject), className)}
       {...rootProps}
     >
       {children && <ArkProgress.Label className={styles.label}>{children}</ArkProgress.Label>}
