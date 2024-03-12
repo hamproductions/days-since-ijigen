@@ -10,3 +10,7 @@
     to = "https://day-n.ham-san.net/unitlive2024"
     status = 200
     force = true
+
+[build]
+  command = "bun run build"
+  publish = "dist"
