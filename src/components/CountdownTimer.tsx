@@ -3,7 +3,9 @@ import type { Event } from "~/utils/events";
 import { getEventDay } from "~/utils/getEventDay";
 import { Text } from "./ui/text";
 
-export const CountdownTimer = ({ event }: { event: Event }) => {
+export const CountdownTimer = (props: { event: Event }) => {
+  const { event } = props ?? {};
+
   return (
     <Stack flex="1" alignItems="center" justifyContent="center" gap="3" px="4">
       <Stack p="5" alignItems="center" bgColor="white.a8">
@@ -18,6 +20,7 @@ export const CountdownTimer = ({ event }: { event: Event }) => {
           {event.headlines.map((headline, idx) => {
             return (
               <Text
+                key={idx}
                 style={{
                   ["--delay" as "animationDuration"]: `${idx * 2}s`,
                 }}

@@ -3,7 +3,8 @@ import { Text } from "~/components/ui/text";
 import type { Event } from "~/utils/events";
 import { Link } from "./ui/link";
 
-export const Footer = ({ event }: { event: Event }) => {
+export const Footer = (props: { event: Event }) => {
+  const { event } = props ?? {};
   return (
     <HStack py="2" justifyContent="center" layerStyle={event.slug}>
       <Link href="https://ham-san.net/namecard" target="_blank">
