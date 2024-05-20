@@ -18,6 +18,7 @@ export const Footer = (props: { event: Event }) => {
         {Object.values(EVENTS_MAP).map((e) => {
           return (
             <Link
+              key={e.slug}
               href={"https://day-n.ham-san.net/" + e.slug}
               className={event.textStyles}
             >
