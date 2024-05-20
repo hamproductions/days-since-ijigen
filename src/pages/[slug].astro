@@ -11,6 +11,7 @@ import "../index.css";
 import { EVENTS, EVENTS_MAP } from "../utils/events";
 import { getEventDay } from "../utils/getEventDay";
 import { ViewTransitions } from "astro:transitions";
+import { getDisplayDate } from "~/utils/meta";
 export const getStaticPaths = (() => {
   return EVENTS.map((e) => ({ params: { slug: e.slug } }));
 }) satisfies GetStaticPaths;
@@ -19,7 +20,7 @@ const { slug } = Astro.params;
 const event = EVENTS_MAP[slug as keyof typeof EVENTS_MAP];
 if (!slug || !(slug in EVENTS_MAP)) return Astro.redirect("/");
 const title = `${event.name} Day ${getEventDay(event.timestamp)}`;
-const day = new Date();
+const day = getDisplayDate();
 const description = `${day.getFullYear()}年${day.getMonth() + 1}月${day.getDate()}日(${["日", "月", "火", "水", "木", "金", "土"][day.getDay()]}) ${event.time} ${event.location}\n${event.hashtags.map((e) => `#${e}`).join("\n")}\n#${event.dayHashtag}${getEventDay(event.timestamp)}`;
 const Background = event.Background;
 ---
