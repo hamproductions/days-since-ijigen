@@ -39,6 +39,12 @@ export default defineConfig({
           kousien: {
             value: "rgb(32,45,130)",
           },
+          hasu2l: {
+            value: "rgb(182,25,15)",
+          },
+          hasublue: {
+            value: "rgb(0,47,100)",
+          },
         },
       },
       layerStyles: {
@@ -55,6 +61,20 @@ export default defineConfig({
           value: {
             color: "{colors.kousien}",
             fontFamily: `"Dela Gothic One"` as unknown as undefined,
+          },
+        },
+        hasu2ndchiba: {
+          value: {
+            color: "{colors.hasu2l}",
+            fontFamily: `"Zen Old Mincho", serif` as unknown as undefined,
+            fontWeight: "600" as unknown as undefined,
+          },
+        },
+        hasu2ndhyougo: {
+          value: {
+            color: "{colors.hasublue}",
+            fontFamily: `"Zen Old Mincho", serif` as unknown as undefined,
+            fontWeight: "600" as unknown as undefined,
           },
         },
       },

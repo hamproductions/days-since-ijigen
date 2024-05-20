@@ -5,46 +5,48 @@ import "@fontsource/mochiy-pop-one";
 import type { GetStaticPaths } from "astro";
 import { Stack } from "styled-system/jsx";
 import { token } from "styled-system/tokens";
-import { CountdownTimer } from '~/components/CountdownTimer';
-import { Footer } from '~/components/Footer';
-import '../index.css';
+import { CountdownTimer } from "~/components/CountdownTimer";
+import { Footer } from "~/components/Footer";
+import "../index.css";
 import { EVENTS, EVENTS_MAP } from "../utils/events";
 import { getEventDay } from "../utils/getEventDay";
+import { ViewTransitions } from "astro:transitions";
 export const getStaticPaths = (() => {
-	return EVENTS.map(e => ({params: {slug: e.slug}}));
+  return EVENTS.map((e) => ({ params: { slug: e.slug } }));
 }) satisfies GetStaticPaths;
 
-const {slug} = Astro.params;
-const event = EVENTS_MAP[slug as keyof typeof EVENTS_MAP]
+const { slug } = Astro.params;
+const event = EVENTS_MAP[slug as keyof typeof EVENTS_MAP];
 if (!slug || !(slug in EVENTS_MAP)) return Astro.redirect("/");
-const title = `${event.name} Day ${getEventDay(event.timestamp)}`
-const day = new Date()
-const description = `${day.getFullYear()}年${day.getMonth()+1}月${day.getDate()}日(${ [ "日", "月", "火", "水", "木", "金", "土" ][day.getDay()]}) ${event.time} ${event.location}\n${event.hashtags.map(e => `#${e}`).join("\n")}\n#${event.dayHashtag}${getEventDay(event.timestamp)}`
+const title = `${event.name} Day ${getEventDay(event.timestamp)}`;
+const day = new Date();
+const description = `${day.getFullYear()}年${day.getMonth() + 1}月${day.getDate()}日(${["日", "月", "火", "水", "木", "金", "土"][day.getDay()]}) ${event.time} ${event.location}\n${event.hashtags.map((e) => `#${e}`).join("\n")}\n#${event.dayHashtag}${getEventDay(event.timestamp)}`;
 const Background = event.Background;
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="theme-color" content={token("colors.ll")}>
-		<title>{title}</title>
-		<meta property="og:title" content={title} />
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content={`https://day-n.ham-san.net/${slug}`} />
-		<meta property="og:image" content={event.logo.src} />
-		<meta property="og:description" content={description} />
-		<meta property="twitter:site" content={event.twitter} />
-		<meta property="twitter:creator" content="@HamP_punipuni" />	
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	</head>
-	<body>
-		<Stack h="screen" overflow="hidden" position="relative">
-			<Background/>
-			<CountdownTimer event={event} />	
-		  <Footer event={event}/>	
-		</Stack>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content={token("colors.ll")} />
+    <title>{title}</title>
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={`https://day-n.ham-san.net/${slug}`} />
+    <meta property="og:image" content={event.logo.src} />
+    <meta property="og:description" content={description} />
+    <meta property="twitter:site" content={event.twitter} />
+    <meta property="twitter:creator" content="@HamP_punipuni" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <ViewTransitions />
+  </head>
+  <body>
+    <Stack h="screen" overflow="hidden" position="relative">
+      <Background />
+      <CountdownTimer event={event} />
+      <Footer event={event} />
+    </Stack>
+  </body>
 </html>

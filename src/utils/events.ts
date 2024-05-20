@@ -3,7 +3,9 @@ import { KousienBg } from "~/components/bg/KousienBg";
 
 import ijigenLogo from "../assets/logo/ijigen.png";
 import kousienLogo from "../assets/logo/kousien.png";
+import hasu2l from "../assets/logo/hasu2l.png";
 import { css } from "styled-system/css";
+import { ImageBg } from "~/components/bg/ImageBg";
 
 export type Event = {
   slug: string;
@@ -54,6 +56,46 @@ export const EVENTS_MAP = {
     textStyles: css({ layerStyle: "unitlive2024" }),
 
     Background: KousienBg,
+  },
+  ["hasu2ndchiba"]: {
+    slug: "hasu2ndchiba",
+    name: "ラブライブ！蓮ノ空女学院スクールアイドルクラブ 2nd Live Tour 〜Blooming with ○○○〜 千葉公演",
+    twitter: "@hasunosora_SIC",
+    location: "幕張メッセ 国際展示場 1～3ホール",
+    time: "16:00開場／17:00開演",
+    timestamp: new Date("2024-04-20T00:00:00+09:00"),
+    hashtags: ["蓮ノ空", "リンクラ", "lovelive"],
+    dayHashtag: "蓮ノ空2nd千葉Day",
+    logo: hasu2l,
+    headlines: [
+      "ラブライブ！蓮ノ空女学院スクールアイドルクラブ",
+      "2nd Live Tour 〜Blooming with ○○○〜",
+      "千葉公演",
+    ],
+    detailsUrl:
+      "https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=BLW",
+    textStyles: css({ layerStyle: "hasu2ndchiba" }),
+    Background: ImageBg(hasu2l.src),
+  },
+  ["hasu2ndhyougo"]: {
+    slug: "hasu2ndhyougo",
+    name: "ラブライブ！蓮ノ空女学院スクールアイドルクラブ 2nd Live Tour 〜Blooming with ○○○〜 兵庫公演",
+    twitter: "@hasunosora_SIC",
+    location: "幕張メッセ 国際展示場 1～3ホール",
+    time: "16:00開場／17:00開演",
+    timestamp: new Date("2024-05-19T00:00:00+09:00"),
+    hashtags: ["蓮ノ空", "リンクラ", "lovelive"],
+    dayHashtag: "蓮ノ空2nd兵庫Day",
+    logo: hasu2l,
+    headlines: [
+      "ラブライブ！蓮ノ空女学院スクールアイドルクラブ",
+      "2nd Live Tour 〜Blooming with ○○○〜",
+      "兵庫公演",
+    ],
+    detailsUrl:
+      "https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=BLW",
+    textStyles: css({ layerStyle: "hasu2ndhyougo" }),
+    Background: ImageBg(hasu2l.src),
   },
 } satisfies Record<string, Event>;
 

@@ -11,6 +11,18 @@
     status = 200
     force = true
 
+[[redirects]]
+    from = "https://hasu2ndchiba-day-n.ham-san.net"
+    to = "https://day-n.ham-san.net/hasu2ndchiba"
+    status = 200
+    force = true
+
+[[redirects]]
+    from = "https://hasu2ndhyougo-day-n.ham-san.net"
+    to = "https://day-n.ham-san.net/hasu2ndhyougo"
+    status = 200
+    force = true
+
 [build]
   command = "bun run build"
   publish = "dist"
