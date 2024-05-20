@@ -81,7 +81,7 @@ export const EVENTS_MAP = {
     slug: "hasu2ndhyougo",
     name: "ラブライブ！蓮ノ空女学院スクールアイドルクラブ 2nd Live Tour 〜Blooming with ○○○〜 兵庫公演",
     twitter: "@hasunosora_SIC",
-    location: "幕張メッセ 国際展示場 1～3ホール",
+    location: "神戸ワールド記念ホール",
     time: "16:00開場／17:00開演",
     timestamp: new Date("2024-05-19T00:00:00+09:00"),
     hashtags: ["蓮ノ空", "リンクラ", "lovelive"],
