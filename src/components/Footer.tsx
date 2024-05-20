@@ -6,6 +6,7 @@ import { Link } from "./ui/link";
 
 export const Footer = (props: { event: Event }) => {
   const { event } = props ?? {};
+
   return (
     <Stack gap="1">
       <Wrap
@@ -17,11 +18,7 @@ export const Footer = (props: { event: Event }) => {
       >
         {Object.values(EVENTS_MAP).map((e) => {
           return (
-            <Link
-              key={e.slug}
-              href={"https://day-n.ham-san.net/" + e.slug}
-              className={event.textStyles}
-            >
+            <Link key={e.slug} href={e.slug} className={event.textStyles}>
               #{e.dayHashtag}
               {getEventDay(e.timestamp)}
             </Link>

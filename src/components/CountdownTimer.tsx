@@ -56,6 +56,14 @@ export const CountdownTimer = (props: { event: Event }) => {
         >
           詳細
         </styled.a>
+        <styled.a
+          layerStyle={event.slug}
+          target="_blank"
+          fontSize="sm"
+          href={`https://twitter.com/intent/tweet?hashtags=${event.dayHashtag}${getEventDay(event.timestamp)},${event.hashtags.join(",")}&url=${encodeURIComponent("https://day-n.ham-san.net/" + event.slug)}`}
+        >
+          ポストする
+        </styled.a>
       </Stack>
     </Stack>
   );
