@@ -83,7 +83,7 @@ export const EVENTS_MAP = {
     twitter: "@hasunosora_SIC",
     location: "神戸ワールド記念ホール",
     time: "16:00開場／17:00開演",
-    timestamp: new Date("2024-05-19T00:00:00+09:00"),
+    timestamp: new Date("2024-05-18T00:00:00+09:00"),
     hashtags: ["蓮ノ空", "リンクラ", "lovelive"],
     dayHashtag: "蓮ノ空2nd兵庫Day",
     logo: hasu2l,
