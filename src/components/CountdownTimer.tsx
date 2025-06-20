@@ -22,12 +22,12 @@ export const CountdownTimer = (props: { event: Event }) => {
               <Text
                 key={idx}
                 style={{
-                  ["--delay" as "animationDuration"]: `1s`,
+                  ["--delay" as "animationDuration"]: `1s`
                 }}
                 animation="fade-in"
                 animationDuration="3s"
                 animationDelay="var(--delay)"
-                layerStyle={event.slug}
+                className={event.textStyles}
                 animationFillMode="both"
               >
                 {headline}
@@ -36,10 +36,10 @@ export const CountdownTimer = (props: { event: Event }) => {
           })}
           <Text
             style={{
-              ["--delay" as "animationDuration"]: `${1}s`,
+              ["--delay" as "animationDuration"]: `${1}s`
             }}
             animation="fade-in"
-            layerStyle={event.slug}
+            className={event.textStyles}
             animationDelay="var(--delay)"
             animationDuration="2s"
             animationFillMode="both"
@@ -49,7 +49,7 @@ export const CountdownTimer = (props: { event: Event }) => {
           </Text>
         </Stack>
         <styled.a
-          layerStyle={event.slug}
+          className={event.textStyles}
           target="_blank"
           fontSize="xl"
           href={event.detailsUrl}
@@ -57,7 +57,7 @@ export const CountdownTimer = (props: { event: Event }) => {
           詳細
         </styled.a>
         <styled.a
-          layerStyle={event.slug}
+          className={event.textStyles}
           target="_blank"
           fontSize="sm"
           href={`https://twitter.com/intent/tweet?hashtags=${event.dayHashtag}${getEventDay(event.timestamp)},${event.hashtags.join(",")}&url=${encodeURIComponent("https://day-n.ham-san.net/" + event.slug)}`}

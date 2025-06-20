@@ -18,16 +18,16 @@ export const Footer = (props: { event: Event }) => {
       >
         {Object.values(EVENTS_MAP).map((e) => {
           return (
-            <Link key={e.slug} href={e.slug} className={event.textStyles}>
+            <Link key={e.slug} href={e.slug} className={e.textStyles}>
               #{e.dayHashtag}
               {getEventDay(e.timestamp)}
             </Link>
           );
         })}
       </Wrap>
-      <HStack py="2" justifyContent="center" layerStyle={event.slug}>
+      <HStack py="2" justifyContent="center" className={event.textStyles}>
         <Link href="https://ham-san.net/namecard" target="_blank">
-          <Text fontWeight="normal" layerStyle={event.slug}>
+          <Text fontWeight="normal" className={event.textStyles}>
             作成：ハムP
           </Text>
         </Link>
@@ -36,7 +36,7 @@ export const Footer = (props: { event: Event }) => {
           href="https://github.com/hamproductions/days-since-ijigen"
           target="_blank"
         >
-          <Text fontWeight="normal" layerStyle={event.slug}>
+          <Text fontWeight="normal" className={event.textStyles}>
             ソース
           </Text>
         </Link>

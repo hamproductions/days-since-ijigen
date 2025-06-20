@@ -8,7 +8,7 @@ export default defineConfig({
   // Where to look for your css declarations
   include: [
     "./src/**/*.{js,jsx,ts,tsx,astro}",
-    "./src/pages/**/*.{js,jsx,ts,tsx,astro}",
+    "./src/pages/**/*.{js,jsx,ts,tsx,astro}"
   ],
 
   presets: [
@@ -16,14 +16,22 @@ export default defineConfig({
     createPreset({
       accentColor: "pink",
       borderRadius: "xl",
-      grayColor: "neutral",
-    }),
+      grayColor: "neutral"
+    })
   ],
 
   // Files to exclude
   exclude: [],
 
-  staticCss: {},
+  staticCss: {
+    css: [
+      {
+        properties: {
+          layerStyles: ["ijigen", "unitlive2024", "hasu2nd", "hasu4th"]
+        }
+      }
+    ]
+  },
 
   // Useful for theme customization
   theme: {
@@ -31,21 +39,21 @@ export default defineConfig({
       tokens: {
         colors: {
           ll: {
-            value: "#e4007f",
+            value: "#e4007f"
           },
           imas: {
-            value: "#f34e6c",
+            value: "#f34e6c"
           },
           kousien: {
-            value: "rgb(32,45,130)",
+            value: "rgb(32,45,130)"
           },
-          hasu2l: {
-            value: "rgb(182,25,15)",
+          hasu: {
+            value: "#e55a9b" // Hasunosora Pink
           },
-          hasublue: {
-            value: "rgb(0,47,100)",
-          },
-        },
+          hasuRed: {
+            value: "#ad2b18"
+          }
+        }
       },
       layerStyles: {
         ijigen: {
@@ -54,37 +62,37 @@ export default defineConfig({
             backgroundImage:
               "linear-gradient(to right, {colors.imas} 0%, {colors.ll} 100%)",
             backgroundClip: "text",
-            color: "transparent",
-          },
+            color: "transparent"
+          }
         },
         unitlive2024: {
           value: {
             color: "{colors.kousien}",
-            fontFamily: `"Dela Gothic One"` as unknown as undefined,
-          },
+            fontFamily: `"Dela Gothic One"` as unknown as undefined
+          }
         },
-        hasu2ndchiba: {
+        hasu2nd: {
           value: {
-            color: "{colors.hasu2l}",
-            fontFamily: `"Zen Old Mincho", serif` as unknown as undefined,
-            fontWeight: "600" as unknown as undefined,
-          },
+            color: "{colors.hasu}",
+            fontFamily:
+              `"ヒラギノ明朝 ProN W6", "HiraMinProN-W6", "HG明朝E", "ＭＳ Ｐ明朝", "MS PMincho", "MS 明朝", serif` as unknown as undefined
+          }
         },
-        hasu2ndhyougo: {
+        hasu4th: {
           value: {
-            color: "{colors.hasublue}",
-            fontFamily: `"Zen Old Mincho", serif` as unknown as undefined,
-            fontWeight: "600" as unknown as undefined,
-          },
-        },
-      },
-    },
+            color: "{colors.hasuRed}",
+            fontFamily:
+              `"ヒラギノ明朝 ProN W6", "HiraMinProN-W6", "HG明朝E", "ＭＳ Ｐ明朝", "MS PMincho", "MS 明朝", serif` as unknown as undefined
+          }
+        }
+      }
+    }
   },
 
   globalCss: {
     extend: {
-      "*": {},
-    },
+      "*": {}
+    }
   },
 
   // The output directory for your css system
@@ -92,5 +100,5 @@ export default defineConfig({
 
   lightningcss: true,
 
-  jsxFramework: "react",
+  jsxFramework: "react"
 });
