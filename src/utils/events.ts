@@ -3,6 +3,8 @@ import { KousienBg } from "~/components/bg/KousienBg";
 import ijigenLogo from "../assets/logo/ijigen.png";
 import kousienLogo from "../assets/logo/kousien.png";
 import hasu2l from "../assets/logo/hasu2l.png";
+import hasu4l from "../assets/logo/hasu4l.webp";
+
 import { css } from "styled-system/css";
 import { ImageBg } from "~/components/bg/ImageBg";
 import { YoutubeBg } from "~/components/bg/YoutubeBg";
@@ -106,7 +108,7 @@ export const EVENTS_MAP = {
     timestamp: new Date("2025-04-26T00:00:00+09:00"),
     hashtags: ["蓮ノ空", "リンクラ", "lovelive"],
     dayHashtag: "蓮ノ空4th石川Day",
-    logo: hasu2l,
+    logo: hasu4l,
     headlines: [
       "ラブライブ！蓮ノ空女学院スクールアイドルクラブ",
       "4th Live Dream ～Bloom, The Dream Believers～",
@@ -126,7 +128,7 @@ export const EVENTS_MAP = {
     timestamp: new Date("2025-05-31T00:00:00+09:00"),
     hashtags: ["蓮ノ空", "リンクラ", "lovelive"],
     dayHashtag: "蓮ノ空4th兵庫Day",
-    logo: hasu2l,
+    logo: hasu4l,
     headlines: [
       "ラブライブ！蓮ノ空女学院スクールアイドルクラブ",
       "4th Live Dream ～Bloom, The Dream Believers～",
@@ -146,7 +148,7 @@ export const EVENTS_MAP = {
     timestamp: new Date("2025-06-07T00:00:00+09:00"),
     hashtags: ["蓮ノ空", "リンクラ", "lovelive"],
     dayHashtag: "蓮ノ空4th卒業Day",
-    logo: hasu2l,
+    logo: hasu4l,
     headlines: [
       "ラブライブ！蓮ノ空女学院スクールアイドルクラブ",
       "4th Live Dream ～Bloom, The Dream Believers～",
